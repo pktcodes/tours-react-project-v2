@@ -13,7 +13,7 @@ const App = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
+      setTours(data);
     } catch (error) {
       console.log(error);
     }
@@ -24,6 +24,18 @@ const App = () => {
     fetchTours();
   }, []);
 
-  return <h2>tours starter</h2>;
+  if (isLoading) {
+    return (
+      <main>
+        <Loading />;
+      </main>
+    );
+  }
+
+  return (
+    <main>
+      <Tours tours={tours} />
+    </main>
+  );
 };
 export default App;
