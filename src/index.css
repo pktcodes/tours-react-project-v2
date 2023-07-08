@@ -222,21 +222,7 @@ ul {
   text-transform: capitalize;
 }
 /* alert */
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.loading {
-  width: 6rem;
-  height: 6rem;
-  border: 5px solid var(--grey-400);
-  border-radius: 50%;
-  margin: 0 auto;
-  border-top-color: var(--primary-500);
-  animation: spinner 0.3s linear infinite;
-}
 /* title */
 
 .title {
@@ -252,16 +238,32 @@ ul {
 }
 /* ============= PROJECT CSS =============== */
 
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  width: 6rem;
+  height: 6rem;
+  border: 5px solid var(--grey-400);
+  border-radius: 50%;
+  margin: 0 auto;
+  border-top-color: var(--primary-500);
+  animation: spinner 0.6s linear infinite;
+}
+
 main {
+  margin: 5rem auto;
   width: 90vw;
   max-width: var(--max-width);
-  margin: 5rem auto;
 }
 
 .tours {
-  padding: 2rem 0;
+  margin: 2rem 0;
   display: grid;
-  gap: 2rem;
+  row-gap: 2rem;
 }
 
 .single-tour {
@@ -273,56 +275,57 @@ main {
 }
 
 .single-tour:hover {
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow-4);
+}
+
+.single-tour img {
+  height: 20rem;
+  border-top-left-radius: var(--borderRadius);
+  border-top-right-radius: var(--borderRadius);
 }
 
 .tour-price {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5rem;
-  color: var(--white);
-  letter-spacing: var(--letterSpacing);
   background: var(--primary-500);
+  color: var(--white);
+  padding: 0.5rem;
+  letter-spacing: var(--letterSpacing);
   border-top-right-radius: var(--borderRadius);
-}
-.single-tour .img {
-  height: 20rem;
-  border-top-right-radius: var(--borderRadius);
-  border-top-left-radius: var(--borderRadius);
 }
 
 .tour-info {
   padding: 2rem 1.5rem;
 }
-
 .tour-info h5 {
   text-align: center;
   margin-bottom: 1rem;
-  font-weight: 500;
   line-height: 1.5;
+  font-weight: 600;
 }
 .tour-info p {
-  margin-bottom: 1.25rem;
-  line-height: 1.5;
   color: var(--grey-500);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
 }
+
 .info-btn,
 .delete-btn {
   background: transparent;
   border: transparent;
-  text-transform: capitalize;
   cursor: pointer;
-}
-.info-btn {
   color: var(--primary-500);
-  font-weight: 600;
+}
+
+.info-btn {
+  text-transform: capitalize;
 }
 
 .delete-btn {
-  border: 1px solid var(--primary-500);
-  color: var(--primary-500);
+  border: 2px solid var(--primary-500);
 }
+
 .delete-btn:hover {
   background: var(--primary-500);
   color: var(--white);
@@ -331,9 +334,11 @@ main {
 @media screen and (min-width: 768px) {
   .tours {
     grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
     align-items: start;
   }
 }
+
 @media screen and (min-width: 992px) {
   .tours {
     grid-template-columns: 1fr 1fr 1fr;
